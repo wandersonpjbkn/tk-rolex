@@ -76,7 +76,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/tk-rolex/img/tk-rolex-9.826e1dce.gif"
   },
   {
-    "revision": "74636038a8e84e573ac7a4a6c9716449",
+    "revision": "69a3389553d1ee625730ecc6f2bf7fb2",
     "url": "/tk-rolex/index.html"
   },
   {
@@ -104,7 +104,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/tk-rolex/js/chunk-vendors.53761f3f.js"
   },
   {
-    "revision": "05f532bcbd17e22f6988198d270b59d9",
+    "revision": "4a2f6ed77347a5c4cbde5805eeb9b791",
     "url": "/tk-rolex/manifest.json"
   },
   {

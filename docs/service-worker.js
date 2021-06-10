@@ -1,4 +1,4 @@
-importScripts("/tk-rolex/precache-manifest.143b64cbd1aeb55c6d1e3fb3fdb9394c.js", "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
+importScripts("/tk-rolex/precache-manifest.62730a912e484d068cae07cd1112776a.js", "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 const LATEST_VERSION = 'v3.0.7'
 const precache = 'precache'
