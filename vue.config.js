@@ -7,11 +7,5 @@ module.exports = {
     }
   },
   publicPath: '/tk-rolex',
-  outputDir: 'docs',
-  pwa: {
-    workboxPluginMode: 'InjectManifest',
-    workboxOptions: {
-      swSrc: './service-worker.js'
-    }
-  }
+  outputDir: 'docs'
 }
