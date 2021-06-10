@@ -1,4 +1,4 @@
-import './registerServiceWorker'
+import './pwa-register'
 
 import Vue from 'vue'
 import App from './App.vue'

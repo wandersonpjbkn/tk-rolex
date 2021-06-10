@@ -2,6 +2,9 @@
   <div id="app">
     <v-slide />
     <v-powered />
+    <v-pwa-refresh
+      v-if="pwa.show"
+      :time-elapse="pwa.time" />
   </div>
 </template>
 
@@ -12,15 +15,30 @@ export default {
   name: 'App',
   components: {
     VSlide: () => import('@/components/VSlide'),
-    VPowered: () => import('@/components/VPowered')
+    VPowered: () => import('@/components/VPowered'),
+    VPwaRefresh: () => import('@/components/VPwaRefresh')
   },
   data: () => ({
     seo: {
       title: 'TK Rolex',
       description: 'Aquela amizade sincera e do peito',
       noindex: true
+    },
+    pwa: {
+      time: 15,
+      show: false
     }
   }),
+  mounted () {
+    this.registerPWA()
+  },
+  methods: {
+    registerPWA () {
+      window.addEventListener('pwaRefreshRequest', e => {
+        this.pwa.show = e.detail.show
+      })
+    }
+  },
   metaInfo () {
     return seoMeta(this.seo)
   }
