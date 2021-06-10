@@ -32,9 +32,6 @@
     "vue-template-compiler": "^2.6.11"
   },
   "_id": "tk-rolex@0.1.0",
-  "gitHooks": {
-    "pre-commit": "lint-staged"
-  },
   "lint-staged": {
     "*.{js,jsx,vue}": [
       "vue-cli-service lint",

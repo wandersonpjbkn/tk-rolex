@@ -5,5 +5,7 @@ module.exports = {
         prependData: '@import "~@/assets/scss/src/_variables.scss";'
       }
     }
-  }
+  },
+
+  publicPath: '/tk-rolex/docs'
 }
