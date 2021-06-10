@@ -45,5 +45,9 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
+
+  @media (min-width: 960px) {
+    --default-height: 100vh;
+  }
 }
 </style>
