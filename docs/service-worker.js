@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/tk-rolex/precache-manifest.0bfaeb87a038aef42a3adbb8fc912271.js"
+  "/tk-rolex/precache-manifest.9213cb655b668a668d12534b9b9089a2.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "tk-rolex"});
