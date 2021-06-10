@@ -7,5 +7,5 @@ module.exports = {
     }
   },
 
-  publicPath: '/tk-rolex/docs'
+  publicPath: '/tk-rolex'
 }
