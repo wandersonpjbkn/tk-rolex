@@ -1,0 +1,20 @@
+
+// Sizes
+// ===========================
+
+$default-size: 16px;
+
+// Structure
+// ===========================
+
+$default-padding: 2em;
+
+
+// Herdados
+// ===========================
+
+%flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
