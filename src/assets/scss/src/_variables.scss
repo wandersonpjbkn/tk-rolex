@@ -2,7 +2,10 @@
 // Sizes
 // ===========================
 
-$default-size: 16px;
+:root {
+  --default-size: 16;
+  --default-height: calc(100vh - 60px);
+}
 
 // Structure
 // ===========================

@@ -12,6 +12,11 @@ export default {
       type: String,
       default: '',
       required: true
+    },
+    mobileWidth: {
+      type: Number,
+      default: 0,
+      required: true
     }
   },
   data: () => ({
@@ -31,8 +36,8 @@ export default {
       img.addEventListener('load', this.getWidth)
     },
     getWidth () {
-      const img = this.$refs.img
-      this.width = img.clientWidth
+      const img = this.$refs.img.getBoundingClientRect()
+      this.width = img.width
     },
     async emitWidth () {
       const img = this.$refs.img
@@ -46,5 +51,8 @@ export default {
 <style lang="scss" scoped>
 img {
   position: absolute;
+
+  width: auto;
+  height: 100%;
 }
 </style>

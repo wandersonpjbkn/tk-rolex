@@ -33,14 +33,14 @@ export default {
 #app {
   display: grid;
   grid-template-rows: 1fr auto;
-  height: 100vh;
+  height: var(--default-height);
   row-gap: $default-padding;
   padding: 0 $default-padding;
   background-color: #f5f5f5;
 
   font: {
     family: Avenir, Helvetica, Arial, sans-serif;
-    size: $default-size;
+    size: calc(var(--default-size) * 1px);
   }
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
