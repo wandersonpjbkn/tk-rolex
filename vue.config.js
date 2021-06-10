@@ -9,12 +9,7 @@ module.exports = {
   publicPath: '/tk-rolex',
   outputDir: 'docs',
   pwa: {
-    name: 'TK Rolex',
-    themeColor: '#111111',
-    msTileColor: '#111111',
-    appleMobileWebAppCapable: 'yes',
-    appleMobileWebAppStatusBarStyle: 'black',
-    assetsVersion: '1.0.0',
+    assetsVersion: '1.0.1',
     workboxPluginMode: 'InjectManifest',
     workboxOptions: {
       swSrc: './service-worker.js'

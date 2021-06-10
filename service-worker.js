@@ -1,4 +1,4 @@
-const LATEST_VERSION = 'v1.0.0'
+const LATEST_VERSION = 'v1.0.1'
 const precache = 'precache'
 const runtime = 'runtime'
 const prefix = 'tk-rolex-app'
