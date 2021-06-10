@@ -9,7 +9,6 @@ module.exports = {
   publicPath: '/tk-rolex',
   outputDir: 'docs',
   pwa: {
-    assetsVersion: '1.0.1',
     workboxPluginMode: 'InjectManifest',
     workboxOptions: {
       swSrc: './service-worker.js'
