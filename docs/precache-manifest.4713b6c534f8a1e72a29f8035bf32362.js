@@ -76,7 +76,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/tk-rolex/img/tk-rolex-9.826e1dce.gif"
   },
   {
-    "revision": "263740b27e5741ea9c03ad5eefa24602",
+    "revision": "80f56e73b544679193860c4ab7ec8d3b",
     "url": "/tk-rolex/index.html"
   },
   {
