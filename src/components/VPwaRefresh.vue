@@ -2,10 +2,10 @@
   <aside
     :class="`pwa-refresh--${position}`"
     class="pwa-refresh"
-    @click="close(true)">
+    @click="refreshApp">
 
     <div class="pwa-refresh__call">
-      <p>Novo conteúdo disponível, atualize</p>
+      <p>novo conteúdo disponível, atualize</p>
     </div>
 
     <div class="pwa-refresh__action">
@@ -41,50 +41,39 @@ export default {
       required: false,
       validator: value => ~propsPositionValidation.indexOf(value)
     },
-
-    timeElapse: {
-      type: Number,
-      default: 3,
-      required: false
+    registration: {
+      required: true
     }
   },
 
   data: () => ({
+    timeElapse: 15,
     time: 0
   }),
 
-  watch: {
-    time (value) {
-      value === 0 && this.close()
-    }
-  },
-
   mounted () {
-    this.$nextTick(() => {
-      this.time = this.timeElapse
-
-      setTimeout(() => {
-        this.countdown()
-      }, 1000)
-    })
+    setTimeout(this.countdown, 1000)
   },
 
   methods: {
-    close (closeNow = false) {
-      const reload = () => window.location.reload(true)
+    refreshApp () {
+      this.$emit('updated')
 
-      if (closeNow) return reload()
+      if (!this.registration || !this.registration.waiting) return
 
-      setTimeout(() => {
-        reload()
-      }, 1000)
+      this.registration.waiting.postMessage({ type: 'SKIP_WAITING' })
     },
 
     countdown () {
+      this.time = this.timeElapse
+
       const interval = setInterval(() => {
-        this.time === 0
-          ? clearInterval(interval)
-          : this.time = this.time - 1
+        if (this.time === 0) {
+          clearInterval(interval)
+          this.refreshApp()
+        } else {
+          this.time -= 1
+        }
       }, 1000)
     }
   }
@@ -94,8 +83,6 @@ export default {
 <style lang="scss" scoped>
 .pwa-refresh {
   $recuo: 20px;
-  $color-primary: #22bf4f;
-  $color-forefront: #111;
 
   position: fixed;
   z-index: 20;
@@ -110,7 +97,7 @@ export default {
   grid-template-areas: "call action";
   align-items: center;
 
-  color: $color-forefront;
+  color: darken($color-primary, 40);
 
   animation: from-bottom ease;
   cursor: pointer;
@@ -188,10 +175,12 @@ export default {
   }
 
   &__time {
-    font-weight: normal;
-    font-family: inherit;
+    font: {
+      weight: normal;
+      family: inherit;
+    }
     text-transform: inherit;
-    color: $color-forefront;
+    color: darken($color-primary, 50);
   }
 }
 </style>

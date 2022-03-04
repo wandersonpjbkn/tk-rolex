@@ -3,8 +3,9 @@
     <v-slide />
     <v-powered />
     <v-pwa-refresh
-      v-if="pwa.show"
-      :time-elapse="pwa.time" />
+      v-if="pwa.updateExists"
+      :registration="pwa.registration"
+      @updated="pwa.updateExists = false" />
   </div>
 </template>
 
@@ -25,18 +26,25 @@ export default {
       noindex: true
     },
     pwa: {
-      time: 15,
-      show: false
+      refreshing: false,
+      registration: null,
+      updateExists: false
     }
   }),
-  mounted () {
-    this.registerPWA()
+  created () {
+    document.addEventListener('pwaRefreshRequest', this.updateAvailable, { once: true })
+
+    navigator.serviceWorker.addEventListener('controllerchange', () => {
+      if (this.pwa.refreshing) return
+
+      this.pwa.refreshing = true
+      window.location.reload()
+    })
   },
   methods: {
-    registerPWA () {
-      window.addEventListener('pwaRefreshRequest', e => {
-        this.pwa.show = e.detail.show
-      })
+    updateAvailable (event) {
+      this.pwa.registration = event.detail
+      this.pwa.updateExists = true
     }
   },
   metaInfo () {
@@ -51,7 +59,7 @@ export default {
 #app {
   display: grid;
   grid-template-rows: 1fr auto;
-  height: var(--default-height);
+  min-height: 100vh;
   row-gap: $default-padding;
   padding: 0 $default-padding;
   background-color: #f5f5f5;
@@ -63,9 +71,5 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
-
-  @media (min-width: 960px) {
-    --default-height: 100vh;
-  }
 }
 </style>

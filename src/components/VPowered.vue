@@ -26,6 +26,6 @@ p {
 }
 
 span {
-  color: #ff0040
+  color: $color-primary
 }
 </style>

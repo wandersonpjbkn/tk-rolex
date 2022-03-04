@@ -7,5 +7,12 @@ module.exports = {
     }
   },
   publicPath: '/tk-rolex',
-  outputDir: 'docs'
+  outputDir: 'docs',
+  pwa: {
+    name: 'TK Rolex',
+    themeColor: '#4DBA87',
+    msTileColor: '#000000',
+    appleMobileWebAppCapable: 'yes',
+    appleMobileWebAppStatusBarStyle: 'black'
+  }
 }
