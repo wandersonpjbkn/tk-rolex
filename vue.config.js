@@ -9,7 +9,7 @@ module.exports = {
   publicPath: '/tk-rolex',
   outputDir: 'docs',
   pwa: {
-    appVersion: '1.0.1',
+    assetsVersion: '1.0.1',
     name: 'TK Rolex',
     themeColor: '#4DBA87',
     msTileColor: '#000000',
