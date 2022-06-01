@@ -1,7 +1,7 @@
 <template>
   <img
-    ref="img"
-    :src="src">
+    :src="src"
+    @load="getDimensions">
 </template>
 
 <script>
@@ -12,37 +12,21 @@ export default {
       type: String,
       default: '',
       required: true
-    },
-    mobileWidth: {
-      type: Number,
-      default: 0,
-      required: true
     }
   },
   data: () => ({
-    width: null
+    width: null,
+    height: null
   }),
-  watch: {
-    width () {
-      this.emitWidth()
-    }
-  },
-  mounted () {
-    this.setListeners()
-  },
   methods: {
-    setListeners () {
-      const img = this.$refs.img
-      img.addEventListener('load', this.getWidth)
-    },
-    getWidth () {
-      const img = this.$refs.img.getBoundingClientRect()
-      this.width = img.width
-    },
-    async emitWidth () {
-      const img = this.$refs.img
-      await this.$emit('size', this.width)
-      await img.removeEventListener('load', this.getWidth)
+    getDimensions ({ target }) {
+      const rect = target.getBoundingClientRect()
+      const { width, height } = rect
+
+      this.width = width
+      this.height = height
+
+      this.$emit('dimension', { width })
     }
   }
 }

@@ -1,16 +1,21 @@
-
-// Sizes
-// ===========================
-
-:root {
-  --default-size: 16;
-}
-
 // Structure
 // ===========================
 
 $default-padding: 2em;
 $color-primary: #52d377;
+$color-secundary: #6871D4;
+$color-warning: #D43D3D;
+$color-grey: #ccc;
+
+
+// Sizes
+// ===========================
+
+:root {
+  --color-primary: #{$color-primary};
+  --color-secundary: #{$color-secundary};
+  --color-grey: #{$color-grey};
+}
 
 
 // Herdados

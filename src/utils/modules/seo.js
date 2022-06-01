@@ -8,14 +8,14 @@ import { seo } from './config'
 export const seoMeta = data => {
   const metadata = {
     title: `${data.title ? data.title : ''}`,
-    titleTemplate: `${data.title ? '%s | ' + seo.NAME : seo.NAME}`,
+    titleTemplate: `${data.title ? '%s' + seo.DIVIDER + seo.NAME : seo.NAME}`,
 
     meta: [
       // Default
       { name: 'description', content: data.description },
 
       // OpenGraph data (Most widely used)
-      { property: 'og:title', content: `${data.title ? data.title + ' | ' + seo.NAME : seo.NAME}` },
+      { property: 'og:title', content: `${data.title ? data.title + seo.DIVIDER + seo.NAME : seo.NAME}` },
       { property: 'og:site_name', content: `${seo.NAME}` },
       { property: 'og:type', content: 'website' },
       { property: 'og:url', content: `${seo.URL}${seo.PATH}` },
@@ -25,11 +25,11 @@ export const seoMeta = data => {
       // Twitter card
       { name: 'twitter:card', content: 'summary' },
       { name: 'twitter:site', content: `${seo.URL}` },
-      { name: 'twitter:title', content: `${data.title ? data.title + ' | ' + seo.NAME : seo.NAME}` },
+      { name: 'twitter:title', content: `${data.title ? data.title + seo.DIVIDER + seo.NAME : seo.NAME}` },
       { name: 'twitter:description', content: data.description },
 
       // Google / Schema.org markup
-      { itemprop: 'name', content: `${data.title ? data.title + ' | ' + seo.NAME : seo.NAME}` },
+      { itemprop: 'name', content: `${data.title ? data.title + seo.DIVIDER + seo.NAME : seo.NAME}` },
       { itemprop: 'description', content: data.description },
       { itemprop: 'image', content: `${seo.URL}${seo.IMG}` }
     ]

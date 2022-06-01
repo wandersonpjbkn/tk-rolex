@@ -22,7 +22,7 @@ export default {
   data: () => ({
     seo: {
       title: 'TK Rolex',
-      description: 'Aquela amizade sincera e do peito',
+      description: 'Algum aniver muito loko, uma rola verde, um TK sorridente, um vídeo para gerações!',
       noindex: true
     },
     pwa: {
@@ -34,12 +34,14 @@ export default {
   created () {
     document.addEventListener('pwaRefreshRequest', this.updateAvailable, { once: true })
 
-    navigator.serviceWorker.addEventListener('controllerchange', () => {
-      if (this.pwa.refreshing) return
+    if (navigator.serviceWorker) {
+      navigator.serviceWorker.addEventListener('controllerchange', () => {
+        if (this.pwa.refreshing) return
 
-      this.pwa.refreshing = true
-      window.location.reload()
-    })
+        this.pwa.refreshing = true
+        window.location.reload()
+      })
+    }
   },
   methods: {
     updateAvailable (event) {
@@ -66,7 +68,7 @@ export default {
 
   font: {
     family: Avenir, Helvetica, Arial, sans-serif;
-    size: calc(var(--default-size) * 1px);
+    size: 16px;
   }
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

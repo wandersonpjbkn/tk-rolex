@@ -1,6 +1,6 @@
 {
   "name": "tk-rolex",
-  "version": "1.0.0",
+  "version": "1.5.0",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -38,5 +38,5 @@
       "git add"
     ]
   },
-  "readme": "ERROR: No README data found!"
+  "readme": "README.md"
 }

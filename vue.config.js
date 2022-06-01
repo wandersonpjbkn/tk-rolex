@@ -1,3 +1,5 @@
+process.env.VUE_APP_ASSETS_VERSION = require('./package.json').version
+
 module.exports = {
   css: {
     loaderOptions: {
@@ -9,7 +11,7 @@ module.exports = {
   publicPath: '/tk-rolex',
   outputDir: 'docs',
   pwa: {
-    assetsVersion: '1.0.1',
+    assetsVersion: process.env.VUE_APP_ASSETS_VERSION,
     name: 'TK Rolex',
     themeColor: '#4DBA87',
     msTileColor: '#000000',

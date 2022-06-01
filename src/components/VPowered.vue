@@ -1,12 +1,17 @@
 <template>
   <footer>
-    <p>make with <span>❤</span> by {{ author }}</p>
+    <p>make with <v-heart class="icn" /> by {{ author }}</p>
   </footer>
 </template>
 
 <script>
+import VHeart from '@/components/VHeart'
+
 export default {
   name: 'VPowered',
+  components: {
+    VHeart
+  },
   data: () => ({
     author: 'wandersonpjbkn'
   })
@@ -25,7 +30,8 @@ p {
   }
 }
 
-span {
-  color: $color-primary
+.icn {
+  width: auto;
+  height: .75em;
 }
 </style>
