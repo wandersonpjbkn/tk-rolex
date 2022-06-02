@@ -12,6 +12,11 @@ export default {
       type: String,
       default: '',
       required: true
+    },
+    index: {
+      type: Number,
+      default: 0,
+      required: true
     }
   },
   data: () => ({
@@ -19,14 +24,15 @@ export default {
     height: null
   }),
   methods: {
-    getDimensions ({ target }) {
-      const rect = target.getBoundingClientRect()
+    async getDimensions ({ currentTarget }) {
+      const index = this.index
+      const rect = currentTarget.getBoundingClientRect()
       const { width, height } = rect
 
       this.width = width
       this.height = height
 
-      this.$emit('dimension', { width })
+      await Promise.resolve(this.$emit('dimension', { width, index }))
     }
   }
 }

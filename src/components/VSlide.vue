@@ -26,8 +26,9 @@
         <v-image
           v-for="(src, index) in collection.list"
           :key="index"
+          :index="index"
           :src="src"
-          :style="setVImageRecuo(index)"
+          :style="getItemStyle(index)"
           @dimension="addItemWidth" />
 
       </div>
@@ -110,7 +111,10 @@ export default {
       return rect.width < this.threshold
     },
     isLoading () {
-      return this.collection.list.length !== this.collection.widths.length
+      const { list, widths } = this.collection
+
+      if (widths.length === 0) return true
+      else return list.length !== widths.length
     },
     infoShowStatus () {
       return this.info.show ? 'OFF' : 'ON'
@@ -148,7 +152,10 @@ export default {
       this.axisX.end = Math.round(value)
     }
   },
-  created () {
+  mounted () {
+    this.collection.list = []
+    this.collection.widths = []
+
     this.loadCollection()
   },
   methods: {
@@ -158,18 +165,12 @@ export default {
         return require(`@/assets/imgs/${name}-${index + 1}.${extension}`)
       })
     },
-    setVImageRecuo (index) {
-      const widths = [...this.collection.widths].slice(0, index)
-
-      let total = 0
-      for (const width of widths) {
-        total += width
-      }
-
-      return `left: ${total}px;`
+    getItemStyle (index) {
+      const widths = this.collection.widths.slice(0, index)
+      return `left: ${widths.reduce((a, b) => a + b, 0)}px;`
     },
-    addItemWidth ({ width }) {
-      this.$set(this.collection.widths, this.collection.widths.length, width)
+    addItemWidth ({ width, index }) {
+      this.collection.widths.splice(index, 0, width)
     },
     setAxisXDimensions (target) {
       const { offsetLeft, offsetWidth } = target
