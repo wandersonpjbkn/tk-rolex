@@ -8,7 +8,6 @@ module.exports = {
       }
     }
   },
-  publicPath: '/tk-rolex',
   outputDir: 'docs',
   pwa: {
     assetsVersion: process.env.VUE_APP_ASSETS_VERSION,

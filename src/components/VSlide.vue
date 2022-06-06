@@ -26,6 +26,8 @@
         <v-image
           v-for="(src, index) in collection.list"
           :key="index"
+          :data-index="index"
+          :data-width="collection.widths[index]"
           :index="index"
           :src="src"
           :style="getItemStyle(index)"
